@@ -1,0 +1,30 @@
+<!--
+Project Title: Dynamic To-Do List
+Name: Abhas Mishra
+Date: 19-03-2026
+Description: A simple dynamic to-do list application using HTML, CSS, and JavaScript
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-box">
+        <h1>My Tasks</h1>
+        <p>This app helps you keep track of things you need to do. You can add, edit, delete, and check off tasks!</p>
+
+        <div class="input-area">
+            <input type="text" id="taskInput" placeholder="Enter a new task...">
+            <button id="addBtn" onclick="addTask()">Add Task</button>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="brain.js"></script>
+</body>
+</html>
