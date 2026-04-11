@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="title">Register for Event</h2>
+
+<form method="POST" class="form" onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="Phone Number">
+    <button type="submit" class="btn">Register Now</button>
+</form>
+
+{% endblock %}

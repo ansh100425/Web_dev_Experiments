@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="title">Upcoming Events</h2>
+
+<input type="text" id="search" placeholder="🔍 Search events..." onkeyup="searchEvents()" class="search">
+
+<div class="card-container">
+{% for e in events %}
+    <div class="card">
+        <h3>{{ e.name }}</h3>
+        <p>📅 {{ e.date }}</p>
+        <p>📍 {{ e.venue }}</p>
+        <a href="/register" class="btn small">Register</a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
