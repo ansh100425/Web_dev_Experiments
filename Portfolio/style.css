@@ -1,0 +1,115 @@
+/* - here we select all html tags - */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* here we the whole section alligns and bg colurs and font type */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* - here we allign the hearder's margin and colour - */
+header {
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #38bdf8;
+}
+/* this we allign the heading one */
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+/* here we do for paragragh in header */
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* -  this for navigation bar 
+life style tag is for removing bullets @google - */
+nav ul {
+    list-style: none;
+    margin-top: 15px;
+}
+/* this tag is used to make menu hrit=zontal */
+nav ul li {
+    display: inline-block;
+    margin: 0 12px;
+}
+/* this text decoration none tag make the underline go away */
+nav ul li a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: bold;
+}
+/*  this is new tag that I learned from youtube this tag help us to change the colur of whe we whover the menu option */
+nav ul li a:hover {
+    color: #38bdf8;
+}
+
+/*  this where we do the styling of all section basic scaling and margins and all */
+section {
+    background-color: #ffffff;
+    margin: 25px auto;
+    padding: 25px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+section h2 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 5px;
+}
+
+/* for About Section para  */
+#about p {
+    font-size: 1rem;
+}
+
+/* for Skills Section para  */
+#skills ul {
+    margin-left: 20px;
+}
+
+#skills li {
+    margin-bottom: 8px;
+}
+
+/* here we make project section look like cards - */
+#projects article {
+    border: 1px solid #d1d5db;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #f9fafb;
+}
+/* here we make project section look like cards - */
+#projects h3 {
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+/* for Contact Section para */
+#contact p {
+    margin-bottom: 8px;
+}
+
+/* For Footer section para   */
+footer {
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
