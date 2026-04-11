@@ -1,0 +1,44 @@
+<!--
+Project Title: Interactive Quiz Application
+Student Name: Abhas Mishra
+Date: 11-03-2026
+Experiment: 3
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to my Quiz!</h1>
+        <p>Try to answer all the questions correctly.</p>
+
+        <hr> <div id="quiz-section">
+            <h2 id="question">Question goes here</h2>
+            
+            <div id="answer-buttons">
+                <button class="btn" onclick="selectAnswer(0)">Option 1</button>
+                <button class="btn" onclick="selectAnswer(1)">Option 2</button>
+                <button class="btn" onclick="selectAnswer(2)">Option 3</button>
+                <button class="btn" onclick="selectAnswer(3)">Option 4</button>
+            </div>
+
+            <br>
+            <button id="next-button" onclick="goToNextQuestion()">Next Question</button>
+        </div>
+
+        <div id="result-section" style="display: none;">
+            <h2>Quiz Over!</h2>
+            <p id="final-score"></p>
+            <p id="message"></p>
+            <button onclick="restartQuiz()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="brain.js"></script>
+</body>
+</html>

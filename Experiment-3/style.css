@@ -1,0 +1,48 @@
+/* Basic page setup */
+body {
+    background-color: lightblue;
+    font-family: sans-serif;
+    text-align: center; /* Center all text */
+}
+
+/* The white box in the middle */
+.container {
+    background-color: white;
+    width: 400px;
+    margin: 50px auto; /* Centers the box on the page */
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+/* Style for the answer buttons */
+.btn {
+    display: block; /* Make buttons stack on top of each other */
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+/* Change color when hovering */
+.btn:hover {
+    background-color: #ddd;
+}
+
+/* Highlight the selected button */
+.selected {
+    background-color: yellow;
+    border: 2px solid orange;
+}
+
+/* The Next button style */
+#next-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
