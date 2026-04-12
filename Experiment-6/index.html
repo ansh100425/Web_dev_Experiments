@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Contact Manager{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('index') }}" class="logo">Contact Manager</a>
+            
+            <form action="{{ url_for('index') }}" method="GET" class="search-form">
+                <input type="text" name="search" placeholder="Search name or phone..." value="{{ request.args.get('search', '') }}">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">All Contacts</a></li>
+                <li><a href="{{ url_for('add_contact') }}" class="btn btn-primary nav-btn">+ Add Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
+
+Index.html
+ <div class="header-action">
+        <h1>Contacts Directory</h1>
+        {% if search_query %}
+            <p>Showing results for: <strong>{{ search_query }}</strong> <a href="{{ url_for('index') }}" class="clear-search">(Clear)</a></p>
+        {% endif %}
+    </div>
+    
+    {% if contacts %}
+        <table class="contact-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td data-label="Name"><strong>{{ contact.name }}</strong></td>
+                        <td data-label="Phone">{{ contact.phone }}</td>
+                        <td data-label="Email"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+                        <td data-label="Actions" class="table-actions">
+                            <a href="{{ url_for('edit_contact', contact_id=contact.id) }}" class="btn btn-sm btn-edit">Edit</a>
+                            <form action="{{ url_for('delete_contact', contact_id=contact.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-delete" onclick="return confirm('Delete {{ contact.name }}?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="empty-state">
+            <p>No contacts found.</p>
+            <a href="{{ url_for('add_contact') }}" class="btn btn-primary">Add a new contact</a>
+        </div>
+
+
+Add_contact.html
+   <div class="form-container">
+        <h1>Add New Contact</h1>
+        
+        {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Contact</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+Edit_contact.html
+
+<div class="form-container">
+        <h1>Edit Contact</h1>
+        
+        {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" value="{{ contact.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="{{ contact.phone }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="{{ contact.email }}" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Update Contact</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
